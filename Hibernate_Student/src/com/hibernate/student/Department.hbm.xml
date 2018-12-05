@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hibernate.student">
+	
+	<class name="Department" table="departments">
+		
+		<!-- 主键 ，映射-->
+		<id name="departmentId" column="departmentId">
+			<generator class="native"/>
+		</id>
+		
+		<!-- 非主键，映射 -->
+		<property name="departmentName" column="departmentName"></property>
+		<property name="departmentDesc" column="departmentDesc"></property>
+		<property name="date" column="date"></property>
+		
+		<set name="enployees" table="enployees">
+			<key column="department_Id"></key>
+			<one-to-many class="Enployee"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
